@@ -11,12 +11,37 @@ class Main
      */
     protected array $data;
 
-    public function __construct(array $data = [])
+    /**
+     * @var Injectable 
+     */
+    protected Injectable $injectable;
+
+    /**
+     * @param Injectable $injectable
+     * @param array $data
+     */
+    public function __construct(
+        Injectable $injectable,
+        array $data = []
+    )
     {
         $this->data = $data;
+        $this->injectable = $injectable;
     }
+
+    /**
+     * @return string
+     */
     public function getId(): string
     {
         return $this->data['id'];
+    }
+
+    /**
+     * @return Injectable
+     */
+    public function getInjectable(): Injectable
+    {
+        return $this->injectable;
     }
 }
