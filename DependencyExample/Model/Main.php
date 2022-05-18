@@ -17,17 +17,18 @@ class Main
     protected Injectable $injectable;
 
     /**
-     * @var NonInjectableFactory
+     * @var NonInjectableInterfaceFactory 
      */
-    protected NonInjectableFactory $nonInjectableFactory;
+    protected NonInjectableInterfaceFactory $nonInjectableFactory;
 
     /**
-     * @param Injectable $injectable
+     * @param InjectableInterface $injectable
+     * @param NonInjectableInterfaceFactory $nonInjectableFactory
      * @param array $data
      */
     public function __construct(
         InjectableInterface $injectable,
-        NonInjectableFactory $nonInjectableFactory,
+        NonInjectableInterfaceFactory $nonInjectableFactory,
         array $data = []
     )
     {
@@ -53,7 +54,7 @@ class Main
     }
 
     /**
-     * @return NonInjectableFactory
+     * @return NonInjectable
      */
     public function getNonInjectable(): NonInjectable
     {

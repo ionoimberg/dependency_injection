@@ -4,6 +4,9 @@
     <!--    this will tell magento, when I ask for InjectableInterface, give me back Injectable class-->
     <preference for="Training\DependencyExample\Model\InjectableInterface"
                 type="Training\DependencyExample\Model\Injectable"/>
+    <!--1st way: preferences are used when an Interface is created only for one class and when only one class implements that Interface-->
+    <preference for="Training\DependencyExample\Model\NonInjectableInterface"
+                type="Training\DependencyExample\Model\NonInjectable"/>
     <type name="Training\DependencyExample\Model\Main">
         <arguments>
             <argument name="data" xsi:type="array">

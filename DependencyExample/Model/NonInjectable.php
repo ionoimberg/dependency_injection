@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Training\DependencyExample\Model;
 
-class NonInjectable
+class NonInjectable implements NonInjectableInterface
 {
     /**
      * @return string
      */
     public function getId(): string
     {
-        return 'Class Non-Injectable';
+        return 'Class Non-Injectable. Implements Inteface';
     }
 }
