@@ -26,7 +26,7 @@ class Main
      * @param array $data
      */
     public function __construct(
-        Injectable $injectable,
+        InjectableInterface $injectable,
         NonInjectableFactory $nonInjectableFactory,
         array $data = []
     )
