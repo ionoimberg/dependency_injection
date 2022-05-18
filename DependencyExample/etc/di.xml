@@ -17,9 +17,20 @@
             <!-- PROXY makes the Class to be called only on demand. It will not be called on page loading everytime-->
             <argument name="heavyOperation" xsi:type="object">Training\DependencyExample\Model\HeavyOperation\Proxy
             </argument>
+            <!-- UpperCaseName will take over and will be given to the Main Class instead of Name. Argument required to make virtualType work-->
+            <argument name="defaultName" xsi:type="object">UpperCaseName</argument>
             <argument name="data" xsi:type="array">
                 <item name="id" xsi:type="string">Class Main</item>
             </argument>
         </arguments>
     </type>
+    <!--    UpperCaseName is a subclass of Training\DependencyExample\Model\VirtualType\DefaultName-->
+    <!--    to make virtualType work add an argument to the Main Class Type above-->
+    <virtualType name="UpperCaseName" type="Training\DependencyExample\Model\VirtualType\DefaultName">
+        <arguments>
+            <!--          name="name" is the argument from the Constructor of DefaultName, exchanged with UpperCaseName Class-->
+            <argument name="name" xsi:type="object">Training\DependencyExample\Model\VirtualType\UpperCaseName
+            </argument>
+        </arguments>
+    </virtualType>
 </config>
