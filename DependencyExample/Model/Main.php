@@ -17,9 +17,14 @@ class Main
     protected Injectable $injectable;
 
     /**
-     * @var NonInjectableInterfaceFactory 
+     * @var NonInjectableInterfaceFactory
      */
     protected NonInjectableInterfaceFactory $nonInjectableFactory;
+
+    /**
+     * @var AbstractUtil
+     */
+    protected AbstractUtil $util;
 
     /**
      * @param InjectableInterface $injectable
@@ -29,12 +34,14 @@ class Main
     public function __construct(
         InjectableInterface $injectable,
         NonInjectableInterfaceFactory $nonInjectableFactory,
+        AbstractUtil $util,
         array $data = []
     )
     {
         $this->data = $data;
         $this->injectable = $injectable;
         $this->nonInjectableFactory = $nonInjectableFactory;
+        $this->util = $util;
     }
 
     /**
@@ -59,5 +66,13 @@ class Main
     public function getNonInjectable(): NonInjectable
     {
         return $this->nonInjectableFactory->create();
+    }
+
+    /**
+     * @return AbstractUtil
+     */
+    public function getUtil(): AbstractUtil
+    {
+        return $this->util;
     }
 }
