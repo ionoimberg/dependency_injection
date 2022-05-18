@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Training\DependencyExample\Model;
 
 use Training\DependencyExample\Model\VirtualType\DefaultName;
+use Magento\Framework\DataObject;
 
 class Main
 {
@@ -44,6 +45,11 @@ class Main
     protected Optional $optional;
 
     /**
+     * @var MethodInjection
+     */
+    protected MethodInjection $methodInjection;
+
+    /**
      * @param InjectableInterface $injectable
      * @param NonInjectableInterfaceFactory $nonInjectableFactory
      * @param AbstractUtil $util
@@ -58,6 +64,7 @@ class Main
         AbstractUtil                  $util,
         HeavyOperation                $heavyOperation,
         DefaultName                   $defaultName,
+        MethodInjection               $methodInjection,
         Optional                      $optional = null,
         array                         $data = []
     )
@@ -69,6 +76,7 @@ class Main
         $this->heavyOperation = $heavyOperation;
         $this->defaultName = $defaultName;
         $this->optional = $optional;
+        $this->methodInjection = $methodInjection;
     }
 
     /**
@@ -125,5 +133,16 @@ class Main
     public function getOptional(): ?Optional
     {
         return $this->optional;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethodInjectionName(): string
+    {
+        // there is no automatic METHOD injection, like Constructors have.
+        // to inject DataObject we need to create the Object, then inject in getName().
+        $dataObject = new DataObject(['name' => 'Method Injection']);
+        return $this->methodInjection->getName($dataObject);
     }
 }
