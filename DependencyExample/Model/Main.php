@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Training\DependencyExample\Model;
 
+use Training\DependencyExample\Model\VirtualType\DefaultName;
+
 class Main
 {
     /**
@@ -32,6 +34,11 @@ class Main
     protected HeavyOperation $heavyOperation;
 
     /**
+     * @var DefaultName
+     */
+    protected DefaultName $defaultName;
+
+    /**
      * @param InjectableInterface $injectable
      * @param NonInjectableInterfaceFactory $nonInjectableFactory
      * @param AbstractUtil $util
@@ -43,6 +50,7 @@ class Main
         NonInjectableInterfaceFactory $nonInjectableFactory,
         AbstractUtil                  $util,
         HeavyOperation                $heavyOperation,
+        DefaultName                   $defaultName,
         array                         $data = []
     )
     {
@@ -51,6 +59,7 @@ class Main
         $this->nonInjectableFactory = $nonInjectableFactory;
         $this->util = $util;
         $this->heavyOperation = $heavyOperation;
+        $this->defaultName = $defaultName;
     }
 
     /**
@@ -91,5 +100,13 @@ class Main
     public function getHeavyOperation(): HeavyOperation
     {
         return $this->heavyOperation;
+    }
+
+    /**
+     * @return DefaultName
+     */
+    public function getDefaultName(): DefaultName
+    {
+        return $this->defaultName;
     }
 }
