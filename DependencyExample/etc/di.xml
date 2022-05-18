@@ -19,6 +19,7 @@
             </argument>
             <!-- UpperCaseName will take over and will be given to the Main Class instead of Name. Argument required to make virtualType work-->
             <argument name="defaultName" xsi:type="object">UpperCaseName</argument>
+            <argument name="optional" xsi:type="object">Training\DependencyExample\Model\Optional</argument>
             <argument name="data" xsi:type="array">
                 <item name="id" xsi:type="string">Class Main</item>
             </argument>

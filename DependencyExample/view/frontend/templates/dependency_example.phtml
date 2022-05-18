@@ -1,29 +1,34 @@
-<?php /** @var \Training\DependencyExample\Block\Example $block */?>
+<?php /** @var \Training\DependencyExample\Block\Example $block */ ?>
 
 <div>
     <h2>Dependency Example</h2>
 </div>
 
 <p>
-    Class Main id is: <?= $block->getMain()->getId()?>
+    Class Main id is: <?= $block->getMain()->getId() ?>
 </p>
 
 <p>
-    CLass Injectable id is: <?= $block->getMain()->getInjectable()->getId()?>
+    CLass Injectable id is: <?= $block->getMain()->getInjectable()->getId() ?>
 </p>
 
 <p>
-    CLass NonInjectable id is: <?= $block->getMain()->getNonInjectable()->getId()?>
+    CLass NonInjectable id is: <?= $block->getMain()->getNonInjectable()->getId() ?>
 </p>
 
 <p>
-    CLass Util name is: <?= $block->getMain()->getUtil()->getName()?>
+    CLass Util name is: <?= $block->getMain()->getUtil()->getName() ?>
 </p>
 
 <p>
-    CLass HeavyOperation name is: <?= $block->getMain()->getHeavyOperation()->getName()?>
+    CLass HeavyOperation name is: <?= $block->getMain()->getHeavyOperation()->getName() ?>
 </p>
 
 <p>
-    CLass DefaultName name is: <?= $block->getMain()->getDefaultName()->getName()?>
+    CLass DefaultName name is: <?= $block->getMain()->getDefaultName()->getName() ?>
+</p>
+
+<p>
+    <!--    will give an error because the value is null. Add argument to di.xml to inject it in Main Class-->
+    CLass Optional name/value is: <?= $block->getMain()->getOptional()->getName() ?>
 </p>

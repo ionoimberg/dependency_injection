@@ -39,10 +39,17 @@ class Main
     protected DefaultName $defaultName;
 
     /**
+     * @var Optional|null
+     */
+    protected Optional $optional;
+
+    /**
      * @param InjectableInterface $injectable
      * @param NonInjectableInterfaceFactory $nonInjectableFactory
      * @param AbstractUtil $util
      * @param HeavyOperation $heavyOperation
+     * @param DefaultName $defaultName
+     * @param Optional $optional
      * @param array $data
      */
     public function __construct(
@@ -51,6 +58,7 @@ class Main
         AbstractUtil                  $util,
         HeavyOperation                $heavyOperation,
         DefaultName                   $defaultName,
+        Optional                      $optional = null,
         array                         $data = []
     )
     {
@@ -60,6 +68,7 @@ class Main
         $this->util = $util;
         $this->heavyOperation = $heavyOperation;
         $this->defaultName = $defaultName;
+        $this->optional = $optional;
     }
 
     /**
@@ -108,5 +117,13 @@ class Main
     public function getDefaultName(): DefaultName
     {
         return $this->defaultName;
+    }
+
+    /**
+     * @return Optional|null
+     */
+    public function getOptional(): ?Optional
+    {
+        return $this->optional;
     }
 }
