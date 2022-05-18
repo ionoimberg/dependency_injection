@@ -7,13 +7,16 @@
     <!-- 1st way: preferences are used when an Interface is created only for one class and when only one class implements that Interface-->
     <preference for="Training\DependencyExample\Model\NonInjectableInterface"
                 type="Training\DependencyExample\Model\NonInjectable"/>
-<!--    We are not going to use this method for Abstract Classes-->
-<!--    <preference for="Training\DependencyExample\Model\AbstractUtil"-->
-<!--                type="Training\DependencyExample\Model\Util"/>-->
+    <!--    We are not going to use this method for Abstract Classes-->
+    <!--    <preference for="Training\DependencyExample\Model\AbstractUtil"-->
+    <!--                type="Training\DependencyExample\Model\Util"/>-->
     <type name="Training\DependencyExample\Model\Main">
         <arguments>
-    <!-- 2nd way: Instead we will use this better way for Abstract Classes-->
+            <!-- 2nd way: Instead we will use this better way for Abstract Classes-->
             <argument name="util" xsi:type="object">Training\DependencyExample\Model\Util</argument>
+            <!-- PROXY makes the Class to be called only on demand. It will not be called on page loading everytime-->
+            <argument name="heavyOperation" xsi:type="object">Training\DependencyExample\Model\HeavyOperation\Proxy
+            </argument>
             <argument name="data" xsi:type="array">
                 <item name="id" xsi:type="string">Class Main</item>
             </argument>

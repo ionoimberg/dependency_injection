@@ -27,21 +27,30 @@ class Main
     protected AbstractUtil $util;
 
     /**
+     * @var HeavyOperation
+     */
+    protected HeavyOperation $heavyOperation;
+
+    /**
      * @param InjectableInterface $injectable
      * @param NonInjectableInterfaceFactory $nonInjectableFactory
+     * @param AbstractUtil $util
+     * @param HeavyOperation $heavyOperation
      * @param array $data
      */
     public function __construct(
-        InjectableInterface $injectable,
+        InjectableInterface           $injectable,
         NonInjectableInterfaceFactory $nonInjectableFactory,
-        AbstractUtil $util,
-        array $data = []
+        AbstractUtil                  $util,
+        HeavyOperation                $heavyOperation,
+        array                         $data = []
     )
     {
         $this->data = $data;
         $this->injectable = $injectable;
         $this->nonInjectableFactory = $nonInjectableFactory;
         $this->util = $util;
+        $this->heavyOperation = $heavyOperation;
     }
 
     /**
@@ -74,5 +83,13 @@ class Main
     public function getUtil(): AbstractUtil
     {
         return $this->util;
+    }
+
+    /**
+     * @return HeavyOperation
+     */
+    public function getHeavyOperation(): HeavyOperation
+    {
+        return $this->heavyOperation;
     }
 }
