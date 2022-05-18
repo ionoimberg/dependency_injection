@@ -12,9 +12,14 @@ class Main
     protected array $data;
 
     /**
-     * @var Injectable 
+     * @var Injectable
      */
     protected Injectable $injectable;
+
+    /**
+     * @var NonInjectableFactory
+     */
+    protected NonInjectableFactory $nonInjectableFactory;
 
     /**
      * @param Injectable $injectable
@@ -22,11 +27,13 @@ class Main
      */
     public function __construct(
         Injectable $injectable,
+        NonInjectableFactory $nonInjectableFactory,
         array $data = []
     )
     {
         $this->data = $data;
         $this->injectable = $injectable;
+        $this->nonInjectableFactory = $nonInjectableFactory;
     }
 
     /**
@@ -43,5 +50,13 @@ class Main
     public function getInjectable(): Injectable
     {
         return $this->injectable;
+    }
+
+    /**
+     * @return NonInjectableFactory
+     */
+    public function getNonInjectable(): NonInjectable
+    {
+        return $this->nonInjectableFactory->create();
     }
 }
