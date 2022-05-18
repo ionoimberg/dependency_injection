@@ -1,5 +1,5 @@
 <?php
-//Block, Layouts, Templates. Injected Class Main from Model. 
+//Block, Layouts, Templates. Injected Class Main from Model.
 // Model -> Block -> Layout -> templates
 declare(strict_types=1);
 
@@ -23,7 +23,7 @@ class Example extends Template //used in layuot dependency_index_index.xml
      */
     public function __construct(
         Context $context,
-        Main    $main,      // (required, has no default value. Required always has to be before the optional argument)
+        Main    $main,      // (required, has no default value. Required ones always has to be before the optional argument)
         array   $data = [] //optional, because has a default value
     )
     {
